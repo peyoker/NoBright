@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>NoBright</AssemblyName>
     <RootNamespace>NoBright</RootNamespace>
@@ -6,11 +6,15 @@
     <TargetFramework>net9.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <Nullable>disable</Nullable>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
-
+  
   <ItemGroup>
+    <PackageReference Include="System.Management" Version="9.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="icon.ico" CopyToOutputDirectory="Always" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="9.0.0-preview.5.24306.8" />
   </ItemGroup>
 </Project>
-
-
