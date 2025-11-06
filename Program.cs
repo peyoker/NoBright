@@ -456,7 +456,7 @@ namespace NoBright
     }
 }
 
-namespace BrightnessToggle.Properties
+namespace NoBright.Properties
 {
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
     {
@@ -485,6 +485,7 @@ namespace BrightnessToggle.Properties
     }
 
 }
+
 
 
 
