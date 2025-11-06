@@ -7,7 +7,7 @@ using Microsoft.Win32;
 using System.Management;
 using nobright.Properties;
 
-namespace nobright
+namespace NoBright
 {
     // Formulario principal de configuración
     public class ConfigForm : Form
@@ -486,4 +486,5 @@ namespace BrightnessToggle.Properties
     }
 
 }
+
 
