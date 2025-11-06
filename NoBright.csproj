@@ -1,5 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <AssemblyName>nobright</AssemblyName>
+    <RootNamespace>nobright</RootNamespace>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
@@ -10,3 +12,4 @@
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="9.0.0-preview.5.24306.8" />
   </ItemGroup>
 </Project>
+
