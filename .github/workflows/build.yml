@@ -40,5 +40,5 @@ jobs:
     - name: Subir artefacto de compilación
       uses: actions/upload-artifact@v4
       with:
-        name: BrightnessToggle-Release # Nombre del archivo .zip descargable
+        name: NoBright-latest # Nombre del archivo .zip descargable
         path: bin/Release/net9.0-windows/ # Ruta a los archivos que se deben empaquetar
