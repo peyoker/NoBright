@@ -6,7 +6,7 @@ using System.Drawing;
 using Microsoft.Win32;
 using System.Management;
 
-namespace BrightnessToggle
+namespace nobright
 {
     // Formulario principal de configuración
     public class ConfigForm : Form
@@ -483,4 +483,5 @@ namespace BrightnessToggle.Properties
             set { this["HoldSeconds"] = value; }
         }
     }
+
 }
