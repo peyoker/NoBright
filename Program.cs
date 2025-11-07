@@ -519,15 +519,13 @@ namespace NoBright
                 savedBrightness = GetCurrentBrightness();
                 SetBrightness(0);
                 brightnessIsLow = true;
-                string msg = configForm?.currentTexts?[20] ?? "Brightness reduced to minimum (saved:";
-                configForm?.LogMessage($"✓ {msg} {savedBrightness}%)");
+                configForm?.LogMessage($"✓ Brightness reduced to minimum (saved: {savedBrightness}%)");
             }
             else
             {
                 SetBrightness(savedBrightness);
                 brightnessIsLow = false;
-                string msg = configForm?.currentTexts?[21] ?? "Brightness restored to";
-                configForm?.LogMessage($"✓ {msg} {savedBrightness}%");
+                configForm?.LogMessage($"✓ Brightness restored to {savedBrightness}%");
             }
         }
 
