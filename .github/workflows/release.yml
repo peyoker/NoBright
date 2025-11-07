@@ -1,0 +1,48 @@
+# Nombre del workflow de Despliegue Continuo (CD)
+name: 'Create and Publish Release'
+
+# Se activa SOLO cuando subes una etiqueta que empieza por 'v' (ej. v1.0.1)
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+# Permisos necesarios para que el workflow pueda crear el release
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    # Se ejecuta en una máquina de Windows
+    runs-on: windows-latest
+
+    steps:
+      # 1. Clona el código del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Configura el SDK de .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      # 3. Restaura las dependencias
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # 4. Compila y publica la aplicación como un único .exe
+      - name: Build and Publish Application
+        run: dotnet publish --configuration Release --runtime win-x64 --self-contained true /p:PublishSingleFile=true --output ./publish
+
+      # 5. Empaqueta el ejecutable en un archivo .zip con el número de versión
+      - name: Package Release
+        run: Compress-Archive -Path ./publish/* -DestinationPath NoBright-${{ github.ref_name }}.zip
+        shell: pwsh
+
+      # 6. Crea el Release en GitHub y sube el .zip
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: NoBright-${{ github.ref_name }}.zip
+          generate_release_notes: true
