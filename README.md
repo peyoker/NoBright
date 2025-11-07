@@ -1,76 +1,55 @@
-NoBright
+# NoBright
 
-NoBright is a lightweight Windows utility designed to instantly dim your display to its minimum brightness with a single keypress. It's perfect for when you need minimal light, like during late-night work sessions or when you're half-asleep.
+> A lightweight Windows utility for complete and instant control over your screen's brightness.
 
+**NoBright** lets you dim your display to its minimum level with a configurable hotkey—perfect for late-night sessions—or set a precise level using the manual slider. It runs silently in your system tray, staying out of your way until you need it.
 
+---
 
-✨ Features
+<!-- ![NoBright Screenshot]((https://i.imgur.com/CXl0KNql.png)) -->
 
-Single-Key Activation — Assign any key you want.
+---
 
-Customizable Hold-to-Trigger — Activation occurs only when the key is held for a user-defined duration (defaults to 3 seconds).
+## ✨ Features
 
-Instant Minimum Brightness — Dims the screen immediately upon activation.
+*   **Instant Dimming Hotkey** — Assign any key (e.g., Ctrl, Alt, F-keys) to instantly toggle minimum brightness.
+*   **Manual Brightness Control** — A dedicated slider in the settings window allows you to set the brightness to any precise percentage (0-100%).
+*   **Customizable Hold-to-Trigger** — Activate the hotkey instantly or require it to be held for a user-defined duration (defaults to 3 seconds).
+*   **System Tray Integration** — Runs quietly in the system tray. Right-click the icon for settings or double-click to open the window.
+*   **Dark Mode** — Features a sleek, eye-friendly dark theme.
+*   **Multi-Language Support** — Available in English and Spanish.
+*   **Starts with Windows** (Optional) — Automatically launch the application at startup.
+*   **Single Instance Guarantee** — Prevents multiple copies of the application from running.
+*   **Helpful Event Log** — See a real-time log of all actions, from hotkey presses to settings changes.
 
-Press Again to Restore — A second press restores the previous brightness level.
+> **Press Hotkey → Screen goes dark**
+>
+> **Press again → Back to normal**
 
-Dark Mode — Features a sleek, eye-friendly dark theme.
+No fumbling, no menus, no complex shortcuts. Just simple, powerful brightness control.
 
-Multi-Language Support — Now available in English.
+---
 
-Single Instance — Prevents multiple copies of the application from running simultaneously.
+## 🚀 Installation
 
-Starts with Windows (Optional) — Runs automatically at startup.
+1.  Download the latest version from the [**Releases**]([https://github.com/peyoker/NoBright/releases) section.
+2.  Run the installer or extract the portable version.
+3.  (Optional) Enable **Start with Windows** in the settings to have it run automatically.
 
-Simple and Unobtrusive — Includes a new icon and runs quietly in the background.
+---
 
-Press → Screen goes dark
-Press again → Back to normal
+## 🔧 Usage
 
-No fumbling, no menus, no complex shortcuts.
+1.  The application will start and run in the system tray.
+2.  **Double-click** the tray icon to open the settings window.
+3.  In settings, select your desired **activation key** and **hold duration**.
+4.  Use the **manual slider** to adjust the brightness at any time.
+5.  Press and hold your chosen key to toggle between minimum and your previously set brightness level.
 
+---
 
+## 📄 Roadmap / TODO
 
-🚀 Installation
-
-Download the latest version from the Releases section.
-
-Run the installer or extract the portable version.
-
-(Optional) Enable Start with Windows in the settings.
-
-🔧 Usage
-
-Open NoBright.
-
-Select your desired activation key.
-
-Set the hold duration (e.g., 3 seconds).
-
-Press and hold the key → The screen will dim.
-
-Press and hold again → Brightness will return to its previous value.
-
-No other interaction is needed.
-
-
-
-⚙️ Settings
-
-Activation Key — A configurable single key.
-
-Hold Duration — The time required to trigger the dimming effect.
-
-Start with Windows — An option for automatic startup.
-
-
-
-📄 Roadmap / TODO
-
-Improve dark mode theme.
-
-Refine interface sizing and layout.
-
-Enhance the version number display in the GUI.
-
-Address minor bug fixes.
+*   Improve and refine the dark mode theme.
+*   Enhance the interface for better scaling and layout.
+*   Address minor bug fixes.
