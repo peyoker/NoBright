@@ -1,59 +1,54 @@
-# NoBright
+NoBright
 
-**NoBright** is a lightweight Windows utility designed to instantly dim your display to minimum brightness with a single keypress — perfect for when you wake up at night or are half‑asleep and want minimal light.
+NoBright is a lightweight Windows utility designed to instantly dim your display to its minimum brightness with a single keypress. It's perfect for when you need minimal light, like during late-night work sessions or when you're half-asleep.
 
-## ✨ Features
+✨ Features
 
-* **Single‑key activation** — assign any key you want
-* **Hold‑to‑trigger** — activation only when held for a user‑defined duration
-* **Instant minimum brightness**
-* **Press again to restore previous brightness**
-* **Starts with Windows** (optional)
-* **Simple, minimal, unobtrusive** — runs quietly in the background
-* **Ideal for nighttime wake‑ups or low‑light situations**
+Single-Key Activation — Assign any key you want.
+Customizable Hold-to-Trigger — Activation occurs only when the key is held for a user-defined duration (defaults to 3 seconds).
+Instant Minimum Brightness — Dims the screen immediately upon activation.
+Press Again to Restore — A second press restores the previous brightness level.
+Dark Mode — Features a sleek, eye-friendly dark theme.
+Multi-Language Support — Now available in English.
+Single Instance — Prevents multiple copies of the application from running simultaneously.
+Starts with Windows (Optional) — Runs automatically at startup.
+Simple and Unobtrusive — Includes a new icon and runs quietly in the background.
 
-> **Press → Screen goes dark**
-> **Press again → Back to normal**
-
+Press → Screen goes dark
+Press again → Back to normal
 No fumbling, no menus, no complex shortcuts.
 
----
 
-## 🚀 Installation
+🚀 Installation
 
-1. Download the latest release from the **Releases** section.
-2. Run the installer or extract the portable version.
-3. (Optional) Enable **Start with Windows** in the settings.
+Download the latest version from the Releases section.
+Extract the portable version and run.
+(Optional) Enable Start with Windows in the settings.
 
----
 
-## 🔧 Usage
+🔧 Usage
 
-1. Open NoBright.
-2. Select the **activation key** you want.
-3. Set **hold duration** (e.g., 1 second).
-4. Press and hold the key → Screen dims.
-5. Press and hold again → Brightness returns to previous value.
+Open NoBright.
+Select your desired activation key.
+Set the hold duration (e.g., 3 seconds).
+Press and hold the key → The screen will dim.
+Press and hold again → Brightness will return to its previous value.
+No other interaction is needed.
 
-No other interaction needed.
 
----
+⚙️ Settings
 
-## ⚙️ Settings
+Activation Key — A configurable single key.
+Hold Duration — The time required to trigger the dimming effect.
+Start with Windows — An option for automatic startup.
 
-* **Activation Key** — configurable single key
-* **Hold Duration** — time required to trigger dimming
-* **Start with Windows** — optional autostart
 
----
+📄 Roadmap / TODO
 
-## 📄 Roadmap / TODO
-
-* Versions
-* Languajes
-* Only one instance
-* Improbe gui
-* Add icon
+Improve dark mode theme.
+Refine interface sizing and layout.
+Enhance the version number display in the GUI.
+Address minor bug fixes.
 
 
 
