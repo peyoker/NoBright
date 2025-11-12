@@ -19,6 +19,10 @@ LanguageDetectionMethod=uilanguage
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
+[CustomMessages]
+CreateStartMenuIcon=Crear icono en el menú Inicio
+AdditionalIcons=Iconos adicionales
+
 ; ===== PÁGINAS OPCIONALES =====
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
