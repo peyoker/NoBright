@@ -1,80 +1,70 @@
-name: 'Create and Publish Release'
+name: Release Build
 
 on:
   push:
     tags:
-      - '*'
+      - "*"   # ejecuta con cualquier etiqueta (v1.2, 1.2, etc.)
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build-and-release:
+  build:
     runs-on: windows-latest
 
     steps:
-      # 1. Checkout del código
+      # 1. Descargar el código
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Configura .NET
+      # 2. Instalar .NET
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.x'
+          dotnet-version: 9.0.x
 
-      # 3. Restaura dependencias
+      # 3. Restaurar dependencias
       - name: Restore dependencies
         run: dotnet restore
 
-      # 4. Compila y publica la app como ejecutable único
-      - name: Build and Publish Application
+      # 4. Compilar y publicar (versión portable)
+      - name: Build and Publish
         run: dotnet publish --configuration Release --runtime win-x64 --self-contained true /p:PublishSingleFile=true --output ./publish
 
-      # 5. Instala Inno Setup
+      # 5. Instalar Inno Setup
       - name: Install Inno Setup
         run: choco install innosetup --no-progress -y
         shell: pwsh
 
-      # 6. Genera el instalador con Inno Setup
+      # 6. Crear el instalador
       - name: Build Installer
         run: |
-          # Sustituir la versión en el archivo ISS
-          (Get-Content installer.iss) -replace '{#Version}', '${{ github.ref_name }}' | Set-Content installer-build.iss
-
-          # Compilar el instalador
+          $version = "${{ github.ref_name }}"
+          (Get-Content installer.iss) -replace '{#Version}', $version | Set-Content installer-build.iss
           & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "installer-build.iss"
-
-          # Comprobar si se generó correctamente
           $outPath = Join-Path $PWD "Output\NoBright-installer.exe"
           if (-not (Test-Path $outPath)) {
             Write-Host "ERROR: installer not found at $outPath"
-            Write-Host "=== Output folder listing ==="
-            if (Test-Path "Output") {
-              Get-ChildItem -Path "Output" -Recurse | ForEach-Object { Write-Host $_.FullName }
-            } else {
-              Write-Host "Output folder does not exist."
-            }
-            Write-Host "=== Current directory listing (publish) ==="
-            Get-ChildItem -Path "./publish" -Recurse | ForEach-Object { Write-Host $_.FullName }
             exit 1
           }
-
-          # Mover el instalador al directorio raíz
-          Move-Item $outPath -Destination (Join-Path $PWD "NoBright-installer.exe")
+          $dest = "NoBright-installer-$version.exe"
+          Move-Item $outPath -Destination (Join-Path $PWD $dest)
         shell: pwsh
 
-      # 7. Empaqueta ejecutable y el instalador
-      - name: Package Release
-        run: Compress-Archive -Path ./publish/*, ./NoBright-installer.exe -DestinationPath NoBright-${{ github.ref_name }}.zip
+      # 7. Crear ZIP portable
+      - name: Create Portable ZIP
+        run: |
+          $version = "${{ github.ref_name }}"
+          Compress-Archive -Path .\publish\* -DestinationPath ("NoBright-" + $version + ".zip")
         shell: pwsh
 
-      # 8. Crea el Release en GitHub y sube el ZIP + el instalador
-      - name: Create GitHub Release
+      # 8. Publicar ambos archivos en el release
+      - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
           files: |
+            NoBright-installer-${{ github.ref_name }}.exe
             NoBright-${{ github.ref_name }}.zip
-            NoBright-installer.exe
-          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
